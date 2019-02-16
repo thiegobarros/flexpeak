@@ -6,6 +6,7 @@ use conquer\select2\Select2Widget;
 use yii\helpers\ArrayHelper;
 use app\models\Curso;
 
+$this->registerJsFile('js/jquery.js');
 $this->registerJsFile('js/aluno.js');
 
 /* @var $this yii\web\View */
@@ -21,17 +22,19 @@ $this->registerJsFile('js/aluno.js');
 
     <?= $form->field($model, 'data_nascimento')->textInput() ?>
 
-    <?= $form->field($model, 'logradouro')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'cep')->textInput(['maxlength' => '8']) ?>
 
-    <?= $form->field($model, 'numero')->textInput() ?>
+    <?= $form->field($model, 'logradouro')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'bairro')->textInput(['maxlength' => true]) ?>
 
+    <?= $form->field($model, 'cidade')->textInput(['maxlength' => true]) ?>
+
     <?= $form->field($model, 'estado')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'data_criacao')->hiddenInput(['value' => date('Y-m-d')])->label(false); ?>
+    <?= $form->field($model, 'numero')->textInput() ?>    
 
-    <?= $form->field($model, 'cep')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'data_criacao')->hiddenInput(['value' => date('Y-m-d')])->label(false); ?>
 
     <?=
     

@@ -18,7 +18,7 @@ class AlunoSearch extends Aluno
     {
         return [
             [['id_aluno', 'numero', 'id_curso'], 'integer'],
-            [['nome', 'data_nascimento', 'logradouro', 'bairro', 'estado', 'data_criacao', 'cep'], 'safe'],
+            [['nome', 'data_nascimento', 'logradouro', 'bairro', 'estado', 'data_criacao', 'cep', 'cidade'], 'safe'],
         ];
     }
 
@@ -68,6 +68,7 @@ class AlunoSearch extends Aluno
         $query->andFilterWhere(['ilike', 'nome', $this->nome])
             ->andFilterWhere(['ilike', 'logradouro', $this->logradouro])
             ->andFilterWhere(['ilike', 'bairro', $this->bairro])
+            ->andFilterWhere(['ilike', 'cidade', $this->bairro])
             ->andFilterWhere(['ilike', 'estado', $this->estado])
             ->andFilterWhere(['ilike', 'cep', $this->cep]);
 

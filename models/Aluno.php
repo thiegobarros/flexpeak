@@ -34,11 +34,11 @@ class Aluno extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['nome', 'data_nascimento', 'logradouro', 'numero', 'bairro', 'estado', 'data_criacao', 'cep', 'id_curso'], 'required'],
+            [['nome', 'data_nascimento', 'logradouro', 'numero', 'bairro', 'estado', 'data_criacao', 'cep', 'id_curso', 'cidade'], 'required'],
             [['data_nascimento', 'data_criacao'], 'safe'],
             [['numero', 'id_curso'], 'default', 'value' => null],
             [['numero', 'id_curso'], 'integer'],
-            [['nome', 'logradouro', 'bairro', 'estado', 'cep'], 'string', 'max' => 255],
+            [['nome', 'logradouro', 'bairro', 'estado', 'cep', 'cidade'], 'string', 'max' => 255],
         ];
     }
 
@@ -58,6 +58,7 @@ class Aluno extends \yii\db\ActiveRecord
             'data_criacao' => 'Data de Criação',
             'cep' => 'CEP',
             'id_curso' => 'Curso',
+            'cidade' => 'Cidade'
         ];
     }
 }
