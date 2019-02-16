@@ -4,12 +4,12 @@ namespace app\models;
 
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use app\models\Aluno;
+use app\models\Professor;
 
 /**
- * AlunoSearch represents the model behind the search form of `app\models\Aluno`.
+ * ProfessorSearch represents the model behind the search form of `app\models\Professor`.
  */
-class AlunoSearch extends Aluno
+class ProfessorSearch extends Professor
 {
     /**
      * {@inheritdoc}
@@ -17,8 +17,8 @@ class AlunoSearch extends Aluno
     public function rules()
     {
         return [
-            [['id_aluno', 'numero', 'id_curso'], 'integer'],
-            [['nome', 'data_nascimento', 'logradouro', 'bairro', 'estado', 'data_criacao', 'cep'], 'safe'],
+            [['id_professor'], 'integer'],
+            [['nome', 'data_nascimento', 'data_criacao'], 'safe'],
         ];
     }
 
@@ -40,7 +40,7 @@ class AlunoSearch extends Aluno
      */
     public function search($params)
     {
-        $query = Aluno::find();
+        $query = Professor::find();
 
         // add conditions that should always apply here
 
@@ -58,18 +58,12 @@ class AlunoSearch extends Aluno
 
         // grid filtering conditions
         $query->andFilterWhere([
-            'id_aluno' => $this->id_aluno,
+            'id_professor' => $this->id_professor,
             'data_nascimento' => $this->data_nascimento,
-            'numero' => $this->numero,
             'data_criacao' => $this->data_criacao,
-            'id_curso' => $this->id_curso,
         ]);
 
-        $query->andFilterWhere(['ilike', 'nome', $this->nome])
-            ->andFilterWhere(['ilike', 'logradouro', $this->logradouro])
-            ->andFilterWhere(['ilike', 'bairro', $this->bairro])
-            ->andFilterWhere(['ilike', 'estado', $this->estado])
-            ->andFilterWhere(['ilike', 'cep', $this->cep]);
+        $query->andFilterWhere(['ilike', 'nome', $this->nome]);
 
         return $dataProvider;
     }

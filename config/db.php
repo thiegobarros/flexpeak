@@ -2,7 +2,7 @@
 
 return [
     'class' => 'yii\db\Connection',
-    'dsn' => 'pgsql:host=localhost;port=5432;dbname=flexpeak',
+    'dsn' => 'pgsql:host=localhost;port=5432;dbname=postgres',
     'username' => 'postgres',
     'password' => 'thiego91',
     'charset' => 'utf8',

@@ -4,11 +4,11 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
 /* @var $this yii\web\View */
-/* @var $model app\models\Aluno */
+/* @var $model app\models\Professor */
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
-<div class="aluno-form">
+<div class="professor-form">
 
     <?php $form = ActiveForm::begin(); ?>
 
@@ -16,19 +16,7 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'data_nascimento')->textInput() ?>
 
-    <?= $form->field($model, 'logradouro')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'numero')->textInput() ?>
-
-    <?= $form->field($model, 'bairro')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'estado')->textInput(['maxlength' => true]) ?>
-
     <?= $form->field($model, 'data_criacao')->textInput() ?>
-
-    <?= $form->field($model, 'cep')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'id_curso')->textInput() ?>
 
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>

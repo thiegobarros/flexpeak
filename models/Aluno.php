@@ -13,7 +13,6 @@ use Yii;
  * @property string $logradouro
  * @property int $numero
  * @property string $bairro
- * @property string $cidade
  * @property string $estado
  * @property string $data_criacao
  * @property string $cep
@@ -35,10 +34,11 @@ class Aluno extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['nome', 'logradouro', 'bairro', 'cidade', 'estado', 'cep'], 'string'],
+            [['nome', 'data_nascimento', 'logradouro', 'numero', 'bairro', 'estado', 'data_criacao', 'cep', 'id_curso'], 'required'],
             [['data_nascimento', 'data_criacao'], 'safe'],
             [['numero', 'id_curso'], 'default', 'value' => null],
             [['numero', 'id_curso'], 'integer'],
+            [['nome', 'logradouro', 'bairro', 'estado', 'cep'], 'string', 'max' => 255],
         ];
     }
 
@@ -54,7 +54,6 @@ class Aluno extends \yii\db\ActiveRecord
             'logradouro' => 'Logradouro',
             'numero' => 'Numero',
             'bairro' => 'Bairro',
-            'cidade' => 'Cidade',
             'estado' => 'Estado',
             'data_criacao' => 'Data Criacao',
             'cep' => 'Cep',
