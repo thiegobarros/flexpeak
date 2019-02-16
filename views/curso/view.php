@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\widgets\DetailView;
+use app\models\Professor;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\Curso */
@@ -32,7 +33,14 @@ $this->params['breadcrumbs'][] = $this->title;
             // 'id_curso',
             'nome',
             'data_criacao',
-            'id_professor',
+            // 'id_professor',
+            [
+                'attribute' => 'id_professor',
+                'value' => function($model){
+                    $tmp = Professor::findOne($model->id_professor);
+                    return $tmp->nome;
+                }
+            ],
         ],
     ]) ?>
 

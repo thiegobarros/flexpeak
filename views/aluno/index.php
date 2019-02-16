@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\grid\GridView;
+use app\models\Curso;
 
 /* @var $this yii\web\View */
 /* @var $searchModel app\models\AlunoSearch */
@@ -34,7 +35,14 @@ $this->params['breadcrumbs'][] = $this->title;
             'estado',
             'data_criacao',
             'cep',
-            'id_curso',
+            // 'id_curso',
+            [
+                'attribute' => 'id_curso',
+                'value' => function($searchModel){
+                    $tmp = Curso::findOne($searchModel->id_curso);
+                    return $tmp->nome;
+                }
+            ],
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

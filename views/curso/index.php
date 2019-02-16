@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\grid\GridView;
+use app\models\Professor;
 
 /* @var $this yii\web\View */
 /* @var $searchModel app\models\CursoSearch */
@@ -28,7 +29,14 @@ $this->params['breadcrumbs'][] = $this->title;
             // 'id_curso',
             'nome',
             'data_criacao',
-            'id_professor',
+            // 'id_professor',
+            [
+                'attribute' => 'id_professor',
+                'value' => function($searchModel){
+                    $tmp = Professor::findOne($searchModel->id_professor);
+                    return $tmp->nome;
+                }
+            ],
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

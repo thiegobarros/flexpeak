@@ -2,6 +2,9 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+use conquer\select2\Select2Widget;
+use yii\helpers\ArrayHelper;
+use app\models\Professor;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\Curso */
@@ -16,7 +19,16 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'data_criacao')->hiddenInput(['value' => date('Y-m-d')])->label(false); ?>
 
-    <?= $form->field($model, 'id_professor')->textInput() ?>
+    <?=
+    
+    $form->field($model, 'id_professor')->widget(
+        Select2Widget::className(),
+        [
+            'items'=>ArrayHelper::map(Professor::find()->all(), 'id_professor', 'nome')
+        ]
+    );
+    
+    ?>
 
     <div class="form-group">
         <?= Html::submitButton('Cadastrar', ['class' => 'btn btn-success']) ?>

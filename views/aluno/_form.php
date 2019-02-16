@@ -2,6 +2,11 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+use conquer\select2\Select2Widget;
+use yii\helpers\ArrayHelper;
+use app\models\Curso;
+
+$this->registerJsFile('js/aluno.js');
 
 /* @var $this yii\web\View */
 /* @var $model app\models\Aluno */
@@ -28,7 +33,16 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'cep')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'id_curso')->textInput() ?>
+    <?=
+    
+    $form->field($model, 'id_curso')->widget(
+        Select2Widget::className(),
+        [
+            'items'=>ArrayHelper::map(Curso::find()->all(), 'id_curso', 'nome')
+        ]
+    );
+    
+    ?>
 
     <div class="form-group">
         <?= Html::submitButton('Cadastrar', ['class' => 'btn btn-success']) ?>

@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\widgets\DetailView;
+use app\models\Curso;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\Aluno */
@@ -38,7 +39,14 @@ $this->params['breadcrumbs'][] = $this->title;
             'estado',
             'data_criacao',
             'cep',
-            'id_curso',
+            // 'id_curso',
+            [
+                'attribute' => 'id_curso',
+                'value' => function($model){
+                    $tmp = Curso::findOne($model->id_curso);
+                    return $tmp->nome;
+                }
+            ],
         ],
     ]) ?>
 
