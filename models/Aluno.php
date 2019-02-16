@@ -50,14 +50,14 @@ class Aluno extends \yii\db\ActiveRecord
         return [
             'id_aluno' => 'Id Aluno',
             'nome' => 'Nome',
-            'data_nascimento' => 'Data Nascimento',
+            'data_nascimento' => 'Data de Nascimento',
             'logradouro' => 'Logradouro',
-            'numero' => 'Numero',
+            'numero' => 'Número',
             'bairro' => 'Bairro',
             'estado' => 'Estado',
-            'data_criacao' => 'Data Criacao',
-            'cep' => 'Cep',
-            'id_curso' => 'Id Curso',
+            'data_criacao' => 'Data de Criação',
+            'cep' => 'CEP',
+            'id_curso' => 'Curso',
         ];
     }
 }

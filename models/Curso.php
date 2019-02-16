@@ -44,8 +44,8 @@ class Curso extends \yii\db\ActiveRecord
         return [
             'id_curso' => 'Id Curso',
             'nome' => 'Nome',
-            'data_criacao' => 'Data Criacao',
-            'id_professor' => 'Id Professor',
+            'data_criacao' => 'Data de Criação',
+            'id_professor' => 'Professor Responsável',
         ];
     }
 }

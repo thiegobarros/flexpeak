@@ -6,8 +6,8 @@ use yii\widgets\DetailView;
 /* @var $this yii\web\View */
 /* @var $model app\models\Professor */
 
-$this->title = $model->id_professor;
-$this->params['breadcrumbs'][] = ['label' => 'Professors', 'url' => ['index']];
+$this->title = $model->nome;
+$this->params['breadcrumbs'][] = ['label' => 'Professores', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
 ?>
@@ -20,7 +20,7 @@ $this->params['breadcrumbs'][] = $this->title;
         <?= Html::a('Delete', ['delete', 'id' => $model->id_professor], [
             'class' => 'btn btn-danger',
             'data' => [
-                'confirm' => 'Are you sure you want to delete this item?',
+                'confirm' => 'Deseja apagar este professor?',
                 'method' => 'post',
             ],
         ]) ?>
@@ -29,7 +29,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <?= DetailView::widget([
         'model' => $model,
         'attributes' => [
-            'id_professor',
+            // 'id_professor',
             'nome',
             'data_nascimento',
             'data_criacao',

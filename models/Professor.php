@@ -42,8 +42,8 @@ class Professor extends \yii\db\ActiveRecord
         return [
             'id_professor' => 'Id Professor',
             'nome' => 'Nome',
-            'data_nascimento' => 'Data Nascimento',
-            'data_criacao' => 'Data Criacao',
+            'data_nascimento' => 'Data de Nascimento',
+            'data_criacao' => 'Data de Criação',
         ];
     }
 }
