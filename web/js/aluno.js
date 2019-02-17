@@ -1,15 +1,8 @@
 $(function(){
 
-    $("input[name='AlunoSearch[data_nascimento]']").change(function(){
-        alert("teste");
-    });
-
     $("#aluno-cep").change(function() {
 
         cep = $("#aluno-cep").val();
-
-        // console.log(cep);
-        // console.log(Number.isInteger(parseInt(cep)));
 
         if(cep.length < 8){
             alert("Por favor, coloque o CEP com 8 digitos!");

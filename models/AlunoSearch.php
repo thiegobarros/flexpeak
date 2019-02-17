@@ -50,17 +50,6 @@ class AlunoSearch extends Aluno
         ]);
 
         $this->load($params);
-
-        // if(strlen($this->data_nascimento) != 10 && $this->data_nascimento != ''){
-        //     Yii::$app->session->setFlash('error', 'Por favor, inserir data no formato: <b>yyyy-mm-dd</b>');
-        //     $this->data_nascimento = '';
-        // }
-
-        // if(strlen($this->data_criacao) != 10 && $this->data_criacao != ''){
-        //     Yii::$app->session->setFlash('error', 'Por favor, inserir data no formato: <b>yyyy-mm-dd</b>');
-        //     $this->data_criacao = '';
-        // }
-
         
         if(!$this->validaData($this->data_nascimento)){
             Yii::$app->session->setFlash('error', 'Por favor, inserir data no formato: <b>yyyy-mm-dd</b>');
