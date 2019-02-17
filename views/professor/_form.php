@@ -8,7 +8,7 @@ use yii\widgets\ActiveForm;
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
-<div class="professor-form">
+<div style="width:400px" class="professor-form">
 
     <?php $form = ActiveForm::begin(); ?>
 

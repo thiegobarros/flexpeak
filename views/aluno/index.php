@@ -36,7 +36,6 @@ $this->params['breadcrumbs'][] = $this->title;
             'estado',
             'numero',
             'data_criacao',
-            'cep',
             // 'id_curso',
             [
                 'attribute' => 'id_curso',

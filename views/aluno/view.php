@@ -21,12 +21,13 @@ $this->params['breadcrumbs'][] = $this->title;
         <?= Html::a('Apagar', ['delete', 'id' => $model->id_aluno], [
             'class' => 'btn btn-danger',
             'data' => [
-                'confirm' => 'Dejesa apagar este aluno?',
+                'confirm' => 'Deseja apagar este aluno?',
                 'method' => 'post',
             ],
         ]) ?>
     </p>
 
+    <div style="width:400px">
     <?= DetailView::widget([
         'model' => $model,
         'attributes' => [
@@ -51,5 +52,10 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
         ],
     ]) ?>
+    </div>
+
+    <p>
+        <?= Html::a('Gerar PDF', ['pdf', 'id' => $model->id_aluno], ['class' => 'btn btn-success']) ?>
+    </p>
 
 </div>

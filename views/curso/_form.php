@@ -11,7 +11,7 @@ use app\models\Professor;
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
-<div class="curso-form">
+<div style="width:400px" class="curso-form">
 
     <?php $form = ActiveForm::begin(); ?>
 

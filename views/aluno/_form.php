@@ -14,7 +14,7 @@ $this->registerJsFile('js/aluno.js');
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
-<div class="aluno-form">
+<div style="width:400px" class="aluno-form">
 
     <?php $form = ActiveForm::begin(); ?>
 
@@ -22,7 +22,7 @@ $this->registerJsFile('js/aluno.js');
 
     <?= $form->field($model, 'data_nascimento')->textInput() ?>
 
-    <?= $form->field($model, 'cep')->textInput(['maxlength' => '8']) ?>
+    <?= $form->field($model, 'cep')->textInput(['maxlength' => '8', 'minlength' => '8']) ?>
 
     <?= $form->field($model, 'logradouro')->textInput(['maxlength' => true]) ?>
 
