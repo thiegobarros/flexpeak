@@ -5,6 +5,7 @@ use yii\widgets\ActiveForm;
 use conquer\select2\Select2Widget;
 use yii\helpers\ArrayHelper;
 use app\models\Curso;
+use kartik\date\DatePicker;
 
 $this->registerJsFile('js/jquery.js');
 $this->registerJsFile('js/aluno.js');
@@ -14,13 +15,22 @@ $this->registerJsFile('js/aluno.js');
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
+<br>
+
 <div style="width:400px" class="aluno-form">
 
     <?php $form = ActiveForm::begin(); ?>
 
     <?= $form->field($model, 'nome')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'data_nascimento')->textInput() ?>
+    <?= $form->field($model, 'data_nascimento')->widget(DatePicker::classname(), [
+        'language' => 'pt',
+        'pluginOptions' => [
+            'autoclose'=>true,
+            'format' => 'yyyy-mm-dd'
+        ]
+    ]);
+    ?>
 
     <?= $form->field($model, 'cep')->textInput(['maxlength' => '8', 'minlength' => '8']) ?>
 

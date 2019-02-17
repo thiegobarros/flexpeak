@@ -28,7 +28,6 @@ $this->params['breadcrumbs'][] = $this->title;
 
             // 'id_curso',
             'nome',
-            'data_criacao',
             // 'id_professor',
             [
                 'attribute' => 'id_professor',
@@ -37,6 +36,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     return $tmp->nome;
                 }
             ],
+            'data_criacao',            
 
             ['class' => 'yii\grid\ActionColumn'],
         ],
