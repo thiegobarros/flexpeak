@@ -1,5 +1,9 @@
 $(function(){
 
+    $("input[name='AlunoSearch[data_nascimento]']").change(function(){
+        alert("teste");
+    });
+
     $("#aluno-cep").change(function() {
 
         cep = $("#aluno-cep").val();

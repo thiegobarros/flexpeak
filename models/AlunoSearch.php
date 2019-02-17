@@ -5,6 +5,7 @@ namespace app\models;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
 use app\models\Aluno;
+use Yii;
 
 /**
  * AlunoSearch represents the model behind the search form of `app\models\Aluno`.
@@ -50,6 +51,27 @@ class AlunoSearch extends Aluno
 
         $this->load($params);
 
+        // if(strlen($this->data_nascimento) != 10 && $this->data_nascimento != ''){
+        //     Yii::$app->session->setFlash('error', 'Por favor, inserir data no formato: <b>yyyy-mm-dd</b>');
+        //     $this->data_nascimento = '';
+        // }
+
+        // if(strlen($this->data_criacao) != 10 && $this->data_criacao != ''){
+        //     Yii::$app->session->setFlash('error', 'Por favor, inserir data no formato: <b>yyyy-mm-dd</b>');
+        //     $this->data_criacao = '';
+        // }
+
+        
+        if(!$this->validaData($this->data_nascimento)){
+            Yii::$app->session->setFlash('error', 'Por favor, inserir data no formato: <b>yyyy-mm-dd</b>');
+            $this->data_nascimento = '';
+        }
+        
+        if(!$this->validaData($this->data_criacao)){
+            Yii::$app->session->setFlash('error', 'Por favor, inserir data no formato: <b>yyyy-mm-dd</b>');
+            $this->data_criacao = '';
+        }
+
         if (!$this->validate()) {
             // uncomment the following line if you do not want to return any records when validation fails
             // $query->where('0=1');
@@ -73,5 +95,21 @@ class AlunoSearch extends Aluno
             ->andFilterWhere(['ilike', 'cep', $this->cep]);
 
         return $dataProvider;
+    }
+
+    public function validaData($data){
+        if(strlen($data) == 10 && $data != ''){
+            $tmp = explode("-", $data);
+
+            if(count($tmp) == 3){
+                return is_numeric($tmp[0].$tmp[1].$tmp[2]);
+            }
+        }
+
+        if($data == ''){
+            return true;
+        }
+
+        return false;
     }
 }

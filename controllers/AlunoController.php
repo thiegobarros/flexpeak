@@ -11,6 +11,8 @@ use app\models\AlunoSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\web\Response;
+use yii\filters\AccessControl;
 
 /**
  * AlunoController implements the CRUD actions for Aluno model.
@@ -67,6 +69,10 @@ class AlunoController extends Controller
      */
     public function actionCreate()
     {
+        if(Yii::$app->user->identity->username != 'admin'){
+            throw new NotFoundHttpException('Você não tem permissão para acessar esta página!');
+        }
+
         $model = new Aluno();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
@@ -87,6 +93,10 @@ class AlunoController extends Controller
      */
     public function actionUpdate($id)
     {
+        if(Yii::$app->user->identity->username != 'admin'){
+            throw new NotFoundHttpException('Você não tem permissão para acessar esta página!');
+        }
+
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
@@ -107,12 +117,20 @@ class AlunoController extends Controller
      */
     public function actionDelete($id)
     {
+        if(Yii::$app->user->identity->username != 'admin'){
+            throw new NotFoundHttpException('Você não tem permissão para acessar esta página!');
+        }
+
         $this->findModel($id)->delete();
 
         return $this->redirect(['index']);
     }
 
     public function actionPdf($id){
+
+        if(Yii::$app->user->identity->username != 'admin'){
+            throw new NotFoundHttpException('Você não tem permissão para acessar esta página!');
+        }
         
         $model = $this->findModel($id);
         $curso = Curso::findOne($model->id_curso);

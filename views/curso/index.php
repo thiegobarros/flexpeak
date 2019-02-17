@@ -33,12 +33,12 @@ $this->params['breadcrumbs'][] = $this->title;
                 'attribute' => 'id_professor',
                 'value' => function($searchModel){
                     $tmp = Professor::findOne($searchModel->id_professor);
-                    return $tmp->nome;
+                    return $tmp->id_professor.'-'.$tmp->nome;
                 }
             ],
             'data_criacao',            
 
-            ['class' => 'yii\grid\ActionColumn'],
+            ['class' => 'yii\grid\ActionColumn', 'visible' => Yii::$app->user->identity->username == 'admin'],
         ],
     ]); ?>
 </div>

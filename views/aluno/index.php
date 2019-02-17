@@ -40,12 +40,12 @@ $this->params['breadcrumbs'][] = $this->title;
                 'attribute' => 'id_curso',
                 'value' => function($searchModel){
                     $tmp = Curso::findOne($searchModel->id_curso);
-                    return $tmp->nome;
+                    return $tmp->id_curso.'-'.$tmp->nome;
                 }
             ],
             'data_criacao',            
 
-            ['class' => 'yii\grid\ActionColumn'],
+            ['class' => 'yii\grid\ActionColumn', 'visible' => Yii::$app->user->identity->username == 'admin'],
         ],
     ]); ?>
 </div>

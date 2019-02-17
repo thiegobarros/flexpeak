@@ -39,23 +39,23 @@ AppAsset::register($this);
         'options' => ['class' => 'navbar-nav navbar-right'],
         'items' => [
             // ['label' => 'Home', 'url' => ['/site/index']],
-            // ['label' => 'About', 'url' => ['/site/about']],
+            ['label' => 'Sobre', 'url' => ['/site/about'], 'visible' => Yii::$app->user->isGuest],
             // ['label' => 'Contact', 'url' => ['/site/contact']],
-            ['label' => 'Alunos', 'url' => ['/aluno/index']],
-            ['label' => 'Cursos', 'url' => ['/curso/index']],
-            ['label' => 'Professores', 'url' => ['/professor/index']],
-            // Yii::$app->user->isGuest ? (
-            //     ['label' => 'Login', 'url' => ['/site/login']]
-            // ) : (
-            //     '<li>'
-            //     . Html::beginForm(['/site/logout'], 'post')
-            //     . Html::submitButton(
-            //         'Logout (' . Yii::$app->user->identity->username . ')',
-            //         ['class' => 'btn btn-link logout']
-            //     )
-            //     . Html::endForm()
-            //     . '</li>'
-            // )
+            ['label' => 'Alunos', 'url' => ['/aluno/index'], 'visible' => !Yii::$app->user->isGuest],
+            ['label' => 'Cursos', 'url' => ['/curso/index'], 'visible' => !Yii::$app->user->isGuest],
+            ['label' => 'Professores', 'url' => ['/professor/index'], 'visible' => !Yii::$app->user->isGuest],
+            Yii::$app->user->isGuest ? (
+                ['label' => 'Login', 'url' => ['/site/login']]
+            ) : (
+                '<li>'
+                . Html::beginForm(['/site/logout'], 'post')
+                . Html::submitButton(
+                    'Logout (' . Yii::$app->user->identity->username . ')',
+                    ['class' => 'btn btn-link logout']
+                )
+                . Html::endForm()
+                . '</li>'
+            )
         ],
     ]);
     NavBar::end();

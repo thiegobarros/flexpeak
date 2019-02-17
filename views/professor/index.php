@@ -30,7 +30,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'data_nascimento',
             'data_criacao',
 
-            ['class' => 'yii\grid\ActionColumn'],
+            ['class' => 'yii\grid\ActionColumn', 'visible' => Yii::$app->user->identity->username == 'admin'],
         ],
     ]); ?>
 </div>
